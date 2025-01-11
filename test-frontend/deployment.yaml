@@ -1,0 +1,25 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: test-frontend
+  labels:
+    app: test-frontend
+spec:
+  replicas: 1
+  selector:
+    matchLabels:
+      app: test-frontend
+  template:
+    metadata:
+      labels:
+        app: test-frontend
+    spec:
+      containers:
+        - name: test-frontend
+          image: pavloskomple/test-frontend:v4.0
+          imagePullPolicy: Always
+          ports:
+            - containerPort: 3000
+          env:
+            - name: BACKEND_SERVICES
+              value: "http://test-backend-service:9004"
