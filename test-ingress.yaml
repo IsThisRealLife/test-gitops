@@ -7,7 +7,7 @@ metadata:
     traefik.ingress.kubernetes.io/router.entrypoints: websecure
 spec:
   rules:
-  - host: choosepath.org
+  - host: test.choosepath.org
     http:
       paths:
       - path: /api
@@ -27,5 +27,5 @@ spec:
 
   tls:
   - hosts:
-    - choosepath.org
-    secretName: choosepath-org-tls
+    - test.choosepath.org
+    secretName: test-choosepath-org-tls
